@@ -3,6 +3,7 @@ const configSchema = z.object({
   PORT: z.string().default('3000').transform(val => Number(val)),
   API_URL: z.string().url(),
   API_KEY: z.string(),
+  STOP_LOOKUP_API_KEY: z.string(),
 })
 
 export const loadConfig = () => {
@@ -12,6 +13,7 @@ export const loadConfig = () => {
       port: config.PORT,
       apiUrl: config.API_URL,
       apiKey: config.API_KEY,
+      stopLookupApiKey: config.STOP_LOOKUP_API_KEY,
     }
   } catch (err) {
     if (err instanceof ZodError) {
